@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>세온정밀 컨셉 사이트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#15181c;--muted:#636a73;--line:#e3e6ea;--alt:#f5f6f7;--dark:#0c0f13;--foot:#1b1f24;--brand:#d9442b;--accent:#d9442b;--title:#15181c;--lat:'Barlow','Noto Sans KR',sans-serif;--kr:'Noto Sans KR',system-ui,sans-serif;--tw:600;--r:0px;--r2:0px;--pill:0px;color-scheme:light}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--kr);font-weight:400;line-height:1.7;font-size:16px;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+ul,ol{list-style:none;padding:0}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+[hidden]{display:none!important}
+h1,h2,h3{font-weight:600;line-height:1.3;letter-spacing:-.02em;text-wrap:balance}
+.wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+.lat{font-family:var(--lat)}
+/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line);transition:background .25s,color .25s,border-color .25s}
+.hd-in{max-width:1680px;margin:0 auto;padding:0 40px;height:80px;display:flex;align-items:center;gap:32px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--lat);font-weight:700;font-size:20px;letter-spacing:-.01em;white-space:nowrap}
+.logo svg{width:26px;height:26px;flex:none}
+.logo small{font-family:var(--kr);font-weight:500;font-size:13px;opacity:.7;margin-left:2px}
+.nav{display:flex;gap:8px;margin:0 auto}
+.nav a{padding:10px 18px;font-size:16px;font-weight:500;position:relative}
+.nav a.on::after{content:"";position:absolute;left:18px;right:18px;bottom:2px;height:2px;background:currentColor}
+.util{display:flex;align-items:center;gap:18px}
+.lang{display:flex;gap:2px;font-family:var(--lat);font-size:13px;font-weight:600}
+.lang button{border:0;background:none;padding:4px 6px;opacity:.45}
+.lang button.on{opacity:1}
+.hd-cta{font-size:14px;font-weight:600;padding:9px 18px;border:1px solid currentColor;border-radius:var(--pill)}
+.burger{display:none;border:0;background:none;font-size:22px;width:40px;height:40px}
+body.on-home.tp:not(.scrolled):not(.menu-open) .hd{background:transparent;color:#fff;border-color:rgba(255,255,255,.18)}
+main{padding-top:80px}
+body.on-home.tp main{padding-top:0}
+/* hero slider */
+.hero{position:relative;height:clamp(560px,88vh,900px);overflow:hidden;background:#0b0d10;color:#fff}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1s}
+.slide.on{opacity:1}
+.slide::before{content:"";position:absolute;inset:0;background:var(--shade,linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.15) 40%,rgba(0,0,0,.6)))}
+.hero-txt{position:absolute;left:0;right:0;bottom:150px;max-width:1360px;margin:0 auto;padding:0 40px}
+.hero-txt .k{font-size:15px;font-weight:500;opacity:.9;margin-bottom:14px}
+.hero-txt h1{font-size:clamp(30px,4.2vw,56px);font-weight:600;line-height:1.28}
+.hero-txt p.d{font-size:17px;opacity:.88;margin-top:16px;max-width:34em}
+.hero-ctl{position:absolute;left:0;right:0;bottom:70px;max-width:1360px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:18px;font-family:var(--lat);font-size:14px}
+.hero-ctl button{background:none;border:1px solid rgba(255,255,255,.6);color:#fff;width:38px;height:38px;border-radius:50%;font-size:12px}
+.sl-bar{width:180px;height:2px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.sl-bar i{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0)}
+.sl-bar i.run{animation:bar 6s linear forwards}
+@keyframes bar{to{transform:scaleX(1)}}
+/* sections */
+.sec{padding:120px 0}
+.sec.alt{background:var(--alt)}
+.sec.dark{background:var(--dark);color:#fff}
+.center{text-align:center}
+.sec-t{font-family:var(--lat);font-size:clamp(38px,5vw,68px);font-weight:var(--tw);letter-spacing:-.02em;line-height:1.1;color:var(--title)}
+.sec.dark .sec-t{color:#fff}
+.sec-d{font-size:18px;color:var(--muted);margin-top:18px}
+.sec.dark .sec-d{color:rgba(255,255,255,.7)}
+.sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.sec-h h2{font-size:clamp(26px,3vw,40px)}
+.eb{font-family:var(--lat);font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--brand);margin-bottom:12px}
+.sec.dark .eb{color:rgba(255,255,255,.75)}
+.go{display:inline-flex;align-items:center;gap:10px;border:1px solid currentColor;border-radius:var(--pill);padding:11px 22px;font-size:14.5px;font-weight:500}
+.go::after{content:"→"}
+.go.fill{background:var(--brand);border-color:var(--brand);color:#fff}
+.figs{display:grid;grid-template-columns:repeat(4,1fr)}
+.figs div{padding:8px 32px;border-left:1px solid var(--line)}
+.figs div:first-child{border-left:0;padding-left:0}
+.sec.dark .figs div{border-color:rgba(255,255,255,.2)}
+.figs b{display:block;font-family:var(--lat);font-size:clamp(34px,4vw,56px);font-weight:var(--tw);letter-spacing:-.02em;line-height:1.15;font-variant-numeric:tabular-nums}
+.figs span{font-size:15px;color:var(--muted)}
+.sec.dark .figs span{color:rgba(255,255,255,.65)}
+/* news */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.news a{border-top:2px solid var(--ink);padding-top:22px;display:flex;flex-direction:column;gap:12px;min-height:190px}
+.news .c{font-size:13px;font-weight:600;color:var(--brand)}
+.news h3{font-size:20px;font-weight:500;line-height:1.5}
+.news time{margin-top:auto;font-family:var(--lat);font-size:14px;color:var(--muted)}
+/* sub pages */
+.sub-vis{height:340px;background-size:cover;background-position:center;position:relative;color:#fff;display:flex;align-items:flex-end}
+.sub-vis::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,18,.78),rgba(8,12,18,.35))}
+.sub-vis .wrap{position:relative;width:100%;padding-bottom:48px}
+.crumb{font-size:13.5px;opacity:.75;margin-bottom:12px;font-family:var(--lat)}
+.sub-vis h1{font-size:clamp(30px,3.6vw,46px)}
+.sub-lead{font-size:clamp(20px,2.2vw,28px);font-weight:500;line-height:1.5;max-width:30em;letter-spacing:-.02em}
+.sub-lead+p{color:var(--muted);margin-top:16px;max-width:44em;font-size:17px}
+.sec.sub{padding:80px 0 120px}
+.mt{margin-top:56px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--bg);border-radius:var(--pill);padding:9px 20px;font-size:15px}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 28px}
+.pcard{display:flex;flex-direction:column;gap:10px}
+.pcard .ph{aspect-ratio:4/3;overflow:hidden;border-radius:var(--r);background:var(--alt);margin-bottom:10px}
+.pcard .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pcard:hover .ph img{transform:scale(1.04)}
+.code{font-family:var(--lat);font-size:13px;font-weight:600;color:var(--brand);letter-spacing:.04em}
+.pcard h3{font-size:21px}
+.pcard p{color:var(--muted);font-size:15px}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px;border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
+.spec dt{color:var(--muted)}
+.spec dd{text-align:right;font-family:var(--lat);font-weight:500;font-variant-numeric:tabular-nums}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);counter-reset:s;border-top:1px solid var(--ink)}
+.step{padding:28px 20px 0 0;position:relative;display:flex;flex-direction:column;gap:8px}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--lat);font-size:40px;font-weight:var(--tw);color:var(--brand);line-height:1}
+.step::after{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:var(--brand)}
+.step h3{font-size:19px;margin-top:8px}
+.step p{font-size:14.5px;color:var(--muted)}
+.metric{font-family:var(--lat);font-size:13.5px;font-weight:600;margin-top:6px}
+.proc-img{border-radius:var(--r);overflow:hidden;aspect-ratio:21/8;margin-bottom:64px}
+.proc-img img{width:100%;height:100%;object-fit:cover}
+.board-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:24px}
+#doc-q{border:0;border-bottom:1px solid var(--ink);padding:10px 4px;min-width:260px;background:none}
+.board-wrap{overflow-x:auto}
+.board{width:100%;border-collapse:collapse;min-width:680px;font-size:15.5px;border-top:2px solid var(--ink)}
+.board th{font-size:14px;font-weight:500;padding:16px 14px;border-bottom:1px solid var(--line);text-align:left;color:var(--muted)}
+.board td{padding:20px 14px;border-bottom:1px solid var(--line)}
+.board .num{font-family:var(--lat);font-size:14px;color:var(--muted);white-space:nowrap}
+.board .ttl{font-weight:500}
+.tag{font-size:13px;color:var(--brand);font-weight:600;white-space:nowrap}
+.dl{border:1px solid var(--line);background:none;border-radius:var(--pill);padding:7px 16px;font-size:13.5px;white-space:nowrap}
+.dl:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.empty{padding:40px;text-align:center;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.two h2{font-size:26px}
+.facts{display:grid;grid-template-columns:120px 1fr;margin-top:20px;border-top:1px solid var(--ink)}
+.facts dt,.facts dd{padding:16px 4px;border-bottom:1px solid var(--line)}
+.facts dt{color:var(--muted)}
+.certs{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.certs li{border:1px solid var(--line);border-radius:var(--pill);padding:8px 18px;font-family:var(--lat);font-size:14px;font-weight:500}
+.tl{margin-top:20px;border-top:1px solid var(--ink)}
+.tl li{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:18px 4px;border-bottom:1px solid var(--line)}
+.tl b{font-family:var(--lat);font-size:20px;font-weight:600;color:var(--brand)}
+.about-img{border-radius:var(--r);overflow:hidden;aspect-ratio:21/9;margin:56px 0}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.form{display:grid;gap:20px}
+.form label{display:grid;gap:8px;font-size:14.5px;font-weight:500}
+.form input,.form select,.form textarea{background:var(--bg);border:1px solid var(--line);border-radius:var(--r2);padding:13px 14px;width:100%}
+.form button{justify-self:start;background:var(--brand);color:#fff;border:0;border-radius:var(--pill);padding:14px 34px;font-weight:600}
+.note{font-size:14.5px;border-left:3px solid var(--brand);padding:12px 16px;background:var(--alt)}
+.map{margin-top:28px;aspect-ratio:16/9;border-radius:var(--r);background:var(--alt);display:grid;place-items:center;color:var(--muted);font-size:14px;text-align:center;padding:16px}
+/* footer */
+.ft{background:var(--foot);color:rgba(255,255,255,.7);padding:72px 0 48px;font-size:14.5px}
+.ft .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
+.ft .logo{color:#fff;margin-bottom:18px}
+.ft h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:14px}
+.ft li{padding:3px 0}
+.ft .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:24px;font-size:13px}
+.badge{position:fixed;left:16px;bottom:16px;z-index:50;background:rgba(15,18,22,.86);color:#fff;font-size:12px;padding:7px 12px;border-radius:999px;font-family:var(--lat);letter-spacing:.02em}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#111;color:#fff;padding:13px 20px;border-radius:10px;font-size:14.5px;max-width:calc(100% - 32px);z-index:60}
+@media(max-width:1080px){.pgrid{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(3,1fr);row-gap:40px}.nav a{padding:10px 10px}}
+@media(max-width:900px){
+.wrap,.hd-in,.hero-txt,.hero-ctl{padding-left:20px;padding-right:20px}.hd-in{height:64px;gap:12px}main{padding-top:64px}
+.burger{display:block}.hd-cta{display:none}.util{margin-left:auto}
+.nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);color:var(--ink);padding:8px 20px 20px;border-bottom:1px solid var(--line);margin:0}
+.menu-open .nav{display:flex}.nav a.on::after{display:none}
+.sec{padding:72px 0}.sec.sub{padding:48px 0 72px}.two{grid-template-columns:1fr;gap:48px}
+.figs{grid-template-columns:repeat(2,1fr);row-gap:28px}.figs div:nth-child(3){border-left:0;padding-left:0}.figs div{padding:4px 20px}
+.news{grid-template-columns:1fr}.news a{min-height:0}.ft .wrap{grid-template-columns:1fr}.ft .legal{grid-column:auto}
+.hero-txt{bottom:120px}.hero-ctl{bottom:48px}.sub-vis{height:240px}}
+@media(max-width:600px){.pgrid,.flow{grid-template-columns:1fr}.sl-bar{width:90px}}
+@media(prefers-reduced-motion:reduce){.slide,.pcard .ph img{transition:none}.sl-bar i.run{animation:none}html{scroll-behavior:auto}}
+
+main{overflow-x:clip}.uc div{flex-wrap:wrap}.slide{pointer-events:none}.slide.on{pointer-events:auto}
+.hd{border-bottom:1px solid var(--line)}.hd-cta{background:var(--brand);border-color:var(--brand);color:#fff}.nav{margin:0 0 0 24px}.util{margin-left:auto}
+.hero-c{padding-top:24px}.hero-c .hero{height:clamp(420px,62vh,600px)}.hero-c .slide::before{display:none}
+.hero-c .hero-txt{left:48px;right:auto;bottom:auto;top:50%;transform:translateY(-50%);max-width:520px;background:rgba(255,255,255,.95);color:var(--ink);padding:38px 42px;margin:0}
+.hero-c h1,.hero-c .h1{font-size:clamp(26px,2.8vw,38px)}.hero-c .hero-ctl{bottom:24px;justify-content:flex-end}.hero-c .hero-ctl button{border-radius:0;background:rgba(0,0,0,.45);border-color:transparent}
+.nr{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.nr a{display:grid;grid-template-columns:150px 1fr;border:1px solid var(--line)}.nr img{width:100%;height:100%;object-fit:cover;min-height:130px}
+.nr div{padding:18px 20px;display:grid;gap:8px;align-content:start}.nr .c{font-size:12.5px;font-weight:600;background:var(--ink);color:#fff;padding:2px 8px;justify-self:start}.nr h3{font-size:16.5px;font-weight:500;line-height:1.5}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:12px}.tile{position:relative;overflow:hidden;color:#fff}.tile.big{grid-column:span 2;grid-row:span 2}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}.tile:hover img{transform:scale(1.05)}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(0,0,0,.72))}.tile span{position:absolute;left:22px;bottom:18px;right:22px;z-index:1;font-size:18px;font-weight:600}
+.story{display:grid;grid-template-columns:1fr 1fr;background:var(--alt)}.story img{width:100%;height:100%;object-fit:cover;min-height:420px}.story div{padding:clamp(32px,6vw,96px);display:grid;gap:18px;align-content:center;justify-items:start}
+.story h2{font-size:clamp(24px,2.6vw,34px)}.story p{color:var(--muted)}
+.quick{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}.quick a{padding:34px 30px;display:grid;gap:6px;border-left:1px solid var(--line)}.quick a:first-child{border-left:0}
+.quick b{font-size:19px}.quick b::after{content:" →";color:var(--brand)}.quick span{color:var(--muted);font-size:14.5px}.quick a:hover{background:var(--alt)}
+.figs b{color:var(--ink)}.sec-t{font-weight:600}
+@media(max-width:900px){.nr,.story{grid-template-columns:1fr}.mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}.quick{grid-template-columns:1fr 1fr}.quick a:nth-child(3){border-left:0}.quick a:nth-child(n+3){border-top:1px solid var(--line)}
+.hero-c .hero-txt{left:16px;right:16px;top:auto;bottom:84px;transform:none;padding:24px}}
+</style></head>
+<body class="seon on-home">
+<header class="hd" id="hd"><div class="hd-in">
+<a class="logo" href="#home"><svg viewBox="0 0 32 32"><rect width="32" height="32" fill="#d9442b"/><path d="M8 21l8-11 8 11" fill="none" stroke="#fff" stroke-width="3"/></svg><span>SEON</span><small  data-en="SEON Precision">세온정밀</small></a>
+<nav class="nav" id="nav"><a href="#about" data-nav data-en="About">회사소개</a><a href="#products" data-nav data-en="Products">제품</a><a href="#process" data-nav data-en="Process">공정</a><a href="#library" data-nav data-en="Resources">자료실</a><a href="#contact" data-nav data-en="Contact">문의</a></nav>
+<div class="util"><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="ko" class="on">KR</button><button type="button" data-lang="en">EN</button></div>
+<a class="hd-cta" href=#contact data-en="Get a quote">견적 문의</a><button class="burger" type="button" id="burger" aria-label="Menu">☰</button></div>
+</div></header>
+<main>
+<section data-view="home"><div class="hero-c"><div class="wrap"><section class="hero " data-slider><div class="slide on" style="background-image:url(img/1537462715879-360eeb61a0ad-l.jpg)"><div class="hero-txt"><h1  data-en="Drawing tolerance, held in production">도면의 공차를 양산에서 그대로</h1><p class="d"  data-en="Semiconductor and automotive parts machined to ±2 μm">±2μm 공차로 반도체·자동차 핵심 부품을 가공합니다</p></div></div><div class="slide" style="background-image:url(img/1581092921461-eab62e97a780-l.jpg)"><div class="hero-txt"><p class="h1"  data-en="A CMM report with every lot">모든 로트에 측정 성적서를</p><p class="d"  data-en="Full dimensional inspection in a temperature-controlled lab">항온 측정실에서 전 치수를 검사해 데이터와 함께 납품합니다</p></div></div><div class="slide" style="background-image:url(img/1504917595217-d4dc5ebe6122-l.jpg)"><div class="hero-txt"><p class="h1"  data-en="Prototype to a million parts a month">시제품부터 월 100만 개까지</p><p class="d"  data-en="84 machines cover development and volume in one plant">84대의 가공기로 개발과 양산을 한 공장에서 처리합니다</p></div></div><div class="hero-ctl"><button type="button" data-sl="pause" aria-label="Pause">❚❚</button><div class="sl-bar"><i></i></div><span class="sl-n">01 / 03</span><button type="button" data-sl="prev" aria-label="Previous">‹</button><button type="button" data-sl="next" aria-label="Next">›</button></div></section></div></div><section class="sec" style="padding:72px 0"><div class="wrap"><div class="sec-h"><h2 class="sec-t" style="font-size:34px"><span  data-en="Newsroom">뉴스룸</span></h2><a class="go" href=#home data-en="Go to newsroom">뉴스룸으로 이동</a></div><div class="nr"><a href="#home"><img src="img/1504917595217-d4dc5ebe6122.jpg" alt=""><div><span class="c"  data-en="Press">보도 자료</span><h3  data-en="Thirty 5-axis machines added at Plant 2">제2공장 5축 가공기 30대 증설 완료</h3></div></a><a href="#home"><img src="img/1581092921461-eab62e97a780.jpg" alt=""><div><span class="c"  data-en="Technology">기술</span><h3  data-en="Automated deburring brings defects down to 12 ppm">교차 홀 버 제거 공정 자동화로 불량률 12ppm 달성</h3></div></a><a href="#home"><img src="img/1611117775350-ac3950990985.jpg" alt=""><div><span class="c"  data-en="Event">전시</span><h3  data-en="Meet us at SEMICON Korea 2027">SEMICON Korea 2027 참가 안내</h3></div></a></div></div></section><section class="sec alt"><div class="wrap"><div class="sec-h"><div><h2  data-en="Machining solutions built around your drawing">고객의 도면에 맞는 가공 솔루션을 제공합니다</h2></div><a class="go" href=#products data-en="All products">전체 제품</a></div><div class="mosaic"><a class="tile big" href="#products"><img src="img/1581092921461-eab62e97a780-l.jpg" alt=""><span  data-en="Vacuum chamber flange">진공 챔버 플랜지</span></a><a class="tile" href="#products"><img src="img/1562408590-e32931084e23.jpg" alt=""><span  data-en="Gas manifold block">가스 매니폴드 블록</span></a><a class="tile" href="#products"><img src="img/1611117775350-ac3950990985.jpg" alt=""><span  data-en="Wafer transfer arm">웨이퍼 이송 암</span></a><a class="tile" href="#products"><img src="img/1537462715879-360eeb61a0ad.jpg" alt=""><span  data-en="Turbocharger shaft">터보차저 샤프트</span></a><a class="tile" href="#products"><img src="img/1504917595217-d4dc5ebe6122.jpg" alt=""><span  data-en="Transmission valve spool">변속기 밸브 스풀</span></a></div></div></section><section class="sec"><div class="wrap"><div class="figs"><div><b>±2μm</b><span  data-en="Machining tolerance">가공 공차</span></div><div><b>84</b><span  data-en="CNC and mill-turn machines">CNC·복합 가공기</span></div><div><b>12 ppm</b><span  data-en="Outgoing defect rate">출하 불량률</span></div><div><b>1,200만</b><span  data-en="Parts per year">연간 생산 수량</span></div></div></div></section><section class="story"><img src="img/1581092580497-e0d23cbdf1dc.jpg" alt=""><div><p class="eb"  data-en="Technology story">기술 이야기</p><h2  data-en="A two-day DFM review, and how we do it">가공성 검토 2일, 왜 가능한가</h2><p  data-en="CAM engineers and quality staff review each drawing together, covering tolerance stack-up, fixturing and metrology in one pass.">접수된 도면은 CAM 엔지니어와 품질 담당자가 함께 검토합니다. 공차 누적, 고정 방법, 측정 방법까지 한 번에 확인해 개선안을 드립니다.</p><a class="go" href=#process data-en="See the process">공정 보기</a></div></section><section class="sec"><div class="wrap"><div class="quick"><a href="#library"><b  data-en="Resources">자료실</b><span  data-en="Catalogs and certificates">카탈로그와 인증서 내려받기</span></a><a href="#contact"><b  data-en="Request a quote">견적 요청</b><span  data-en="Reply within two days">도면 접수 후 2일 안에 회신</span></a><a href="#process"><b  data-en="Process">생산 공정</b><span  data-en="Six-step quality control">여섯 단계 품질 관리</span></a><a href="#about"><b  data-en="About">회사 소개</b><span  data-en="History and certifications">연혁과 인증 현황</span></a></div></div></section></section>
+
+<section data-view="products" hidden><div class="sub-vis" style="background-image:url(img/1537462715879-360eeb61a0ad-l.jpg)"><div class="wrap"><p class="crumb">Home &nbsp;›&nbsp; <span  data-en="Products">제품</span></p><h1  data-en="Product lineup">제품 라인업</h1></div></div>
+ <div class="sec sub"><div class="wrap"><p class="sub-lead"  data-en="Representative items. Parts are made to drawing; material and finish are agreed per project.">대표 품목입니다. 도면 기반 주문 제작이 기본이며, 소재와 표면처리는 협의로 정합니다.</p><div class="chips mt"><button class="chip on" data-filter="all" data-group="prod" data-en="All">전체</button><button class="chip" data-filter="semi" data-group="prod" data-en="Semiconductor equipment">반도체 장비 부품</button><button class="chip" data-filter="auto" data-group="prod" data-en="Automotive powertrain">자동차 파워트레인</button><button class="chip" data-filter="hyd" data-group="prod" data-en="Hydraulic and pneumatic">유압·공압 부품</button></div><div class="pgrid mt"><article class="pcard" data-cat="semi" data-group="prod"><div class="ph"><img src="img/1581092921461-eab62e97a780.jpg" alt=""></div><span class="code">SP-VF200</span><h3  data-en="Vacuum chamber flange">진공 챔버 플랜지</h3><p  data-en="Ultra-high-vacuum flange, helium leak tested">헬륨 누설 검사를 통과한 초고진공용 플랜지</p><dl class="spec"><dt  data-en="Material">소재</dt><dd>Al6061-T6</dd><dt  data-en="Flatness">평탄도</dt><dd>0.01 mm</dd><dt  data-en="Roughness">표면 거칠기</dt><dd>Ra 0.4</dd></dl></article><article class="pcard" data-cat="semi" data-group="prod"><div class="ph"><img src="img/1562408590-e32931084e23.jpg" alt=""></div><span class="code">SP-GM316</span><h3  data-en="Gas manifold block">가스 매니폴드 블록</h3><p  data-en="High-purity gas block with electropolished flow paths">전해연마로 내부 유로를 마감한 고순도 가스 블록</p><dl class="spec"><dt  data-en="Material">소재</dt><dd>SUS316L</dd><dt  data-en="Bore roughness">내면 거칠기</dt><dd>Ra 0.2</dd><dt  data-en="Cleanliness">청정도</dt><dd>Class 100</dd></dl></article><article class="pcard" data-cat="semi" data-group="prod"><div class="ph"><img src="img/1611117775350-ac3950990985.jpg" alt=""></div><span class="code">SP-RA450</span><h3  data-en="Wafer transfer arm">웨이퍼 이송 암</h3><p  data-en="Lightweight robot arm with hard anodizing">경량 구조와 경질 아노다이징을 적용한 로봇 암</p><dl class="spec"><dt  data-en="Material">소재</dt><dd>Al7075</dd><dt  data-en="Straightness">직진도</dt><dd>0.02 mm</dd><dt  data-en="Wafer size">대응 웨이퍼</dt><dd>300 mm</dd></dl></article><article class="pcard" data-cat="auto" data-group="prod"><div class="ph"><img src="img/1537462715879-360eeb61a0ad.jpg" alt=""></div><span class="code">SP-TS044</span><h3  data-en="Turbocharger shaft">터보차저 샤프트</h3><p  data-en="Shaft built for 200,000 rpm">분당 20만 회전에 대응하는 고속 회전축</p><dl class="spec"><dt  data-en="Material">소재</dt><dd>SCM440</dd><dt  data-en="Concentricity">동심도</dt><dd>3 μm</dd><dt  data-en="Hardness">경도</dt><dd>HRC 58</dd></dl></article><article class="pcard" data-cat="auto" data-group="prod"><div class="ph"><img src="img/1504917595217-d4dc5ebe6122.jpg" alt=""></div><span class="code">SP-VS120</span><h3  data-en="Transmission valve spool">변속기 밸브 스풀</h3><p  data-en="Precision spool for hydraulic valve bodies">유압 제어 밸브 바디용 초정밀 스풀</p><dl class="spec"><dt  data-en="Material">소재</dt><dd>SUM24L</dd><dt  data-en="OD tolerance">외경 공차</dt><dd>±2 μm</dd><dt  data-en="Roundness">진원도</dt><dd>1 μm</dd></dl></article><article class="pcard" data-cat="hyd" data-group="prod"><div class="ph"><img src="img/1530124566582-a618bc2615dc.jpg" alt=""></div><span class="code">SP-HM080</span><h3  data-en="Hydraulic manifold">유압 매니폴드</h3><p  data-en="High-pressure manifold, cross-hole burrs fully removed">교차 홀 버를 전수 제거한 고압 매니폴드</p><dl class="spec"><dt  data-en="Material">소재</dt><dd>S45C</dd><dt  data-en="Working pressure">사용 압력</dt><dd>35 MPa</dd><dt  data-en="Plating">도금</dt><dd>Zn-Ni</dd></dl></article></div></div></div></section>
+
+<section data-view="process" hidden><div class="sub-vis" style="background-image:url(img/1581092580497-e0d23cbdf1dc.jpg)"><div class="wrap"><p class="crumb">Home &nbsp;›&nbsp; <span  data-en="Process">공정</span></p><h1  data-en="Six-step production process">여섯 단계 생산 공정</h1></div></div>
+ <div class="sec sub"><div class="wrap"><p class="sub-lead"  data-en="Inspection results at each step are traced by lot number, down to the machine and tool.">각 단계의 검사 결과를 로트 번호로 추적합니다. 문제가 생기면 어느 설비, 어느 공구에서 나왔는지 바로 확인합니다.</p><ol class="flow mt"><li class="step"><h3  data-en="DFM review">가공성 검토</h3><p  data-en="Review tolerances and sequence, then propose improvements">도면 공차와 가공 순서를 검토하고 개선안을 제안합니다</p><span class="metric">D+2</span></li><li class="step"><h3  data-en="Incoming inspection">소재 입고 검사</h3><p  data-en="Verify material by mill sheet and composition analysis">성적서 대조와 성분 분석으로 소재를 확인합니다</p><span class="metric">100 %</span></li><li class="step"><h3  data-en="CNC machining">CNC 가공</h3><p  data-en="5-axis and mill-turn machining in a single setup">5축·복합 가공기로 한 번 고정해 끝까지 가공합니다</p><span class="metric">±2 μm</span></li><li class="step"><h3  data-en="Heat and surface treatment">열·표면 처리</h3><p  data-en="Heat treatment, anodizing and plating with approved partners">열처리, 아노다이징, 도금을 지정 협력사와 진행합니다</p><span class="metric">HRC 58</span></li><li class="step"><h3  data-en="CMM inspection">3차원 측정</h3><p  data-en="Full dimensional check in a temperature-controlled room">항온실에서 전 치수를 측정하고 성적서를 발행합니다</p><span class="metric">20 ±0.5 ℃</span></li><li class="step"><h3  data-en="Cleaning and packing">세정·포장</h3><p  data-en="Ultrasonic cleaning, then vacuum packing">초음파 세정 후 진공 포장해 출하합니다</p><span class="metric">Class 100</span></li></ol></div></div>
+ <div class="sec alt"><div class="wrap"><div class="sec-h"><h2  data-en="Quality managed by numbers">숫자로 관리하는 품질</h2></div><div class="figs"><div><b>Cpk 1.67</b><span  data-en="Process capability, key dimensions">핵심 치수 공정능력</span></div><div><b>99.4 %</b><span  data-en="On-time delivery">납기 준수율</span></div><div><b>12 ppm</b><span  data-en="Outgoing defect rate">출하 불량률</span></div><div><b>8D 48h</b><span  data-en="Corrective action report">불량 대응 보고</span></div></div></div></div></section>
+
+<section data-view="library" hidden><div class="sub-vis" style="background-image:url(img/1581092160562-40aa08e78837.jpg)"><div class="wrap"><p class="crumb">Home &nbsp;›&nbsp; <span  data-en="Resources">자료실</span></p><h1  data-en="Resources">자료실</h1></div></div>
+ <div class="sec sub"><div class="wrap"><div class="board-top"><div class="chips"><button class="chip on" data-filter="all" data-group="doc" data-en="All">전체</button><button class="chip" data-filter="catalog" data-group="doc" data-en="Catalogs">카탈로그</button><button class="chip" data-filter="cert" data-group="doc" data-en="Certificates">인증서</button><button class="chip" data-filter="tech" data-group="doc" data-en="Technical">기술자료</button><button class="chip" data-filter="form" data-group="doc" data-en="Forms">양식</button></div>
+  <input id="doc-q" type="search" placeholder="제목 검색" data-en-ph="Search titles" aria-label="Search"></div>
+  <div class="board-wrap"><table class="board"><thead><tr><th  data-en="No.">번호</th><th  data-en="Category">분류</th><th  data-en="Title">제목</th><th  data-en="File">파일</th><th  data-en="Date">등록일</th><th></th></tr></thead><tbody><tr data-cat="catalog" data-group="doc"><td class="num">8</td><td><span class="tag"  data-en="Catalogs">카탈로그</span></td><td class="ttl"><span  data-en="Company profile 2026">세온정밀 회사소개서 2026</span></td><td class="num">PDF · 8.4 MB</td><td class="num">2026-10-21</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="catalog" data-group="doc"><td class="num">7</td><td><span class="tag"  data-en="Catalogs">카탈로그</span></td><td class="ttl"><span  data-en="Product catalog (KR/EN)">제품 종합 카탈로그 (국문·영문)</span></td><td class="num">PDF · 14.2 MB</td><td class="num">2026-09-30</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="cert" data-group="doc"><td class="num">6</td><td><span class="tag"  data-en="Certificates">인증서</span></td><td class="ttl"><span  data-en="ISO 9001:2015 certificate">ISO 9001:2015 인증서</span></td><td class="num">PDF · 0.6 MB</td><td class="num">2026-08-12</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="cert" data-group="doc"><td class="num">5</td><td><span class="tag"  data-en="Certificates">인증서</span></td><td class="ttl"><span  data-en="IATF 16949 certificate">IATF 16949 인증서</span></td><td class="num">PDF · 0.7 MB</td><td class="num">2026-08-12</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="tech" data-group="doc"><td class="num">4</td><td><span class="tag"  data-en="Technical">기술자료</span></td><td class="ttl"><span  data-en="Machine and metrology list">보유 설비 및 측정기 목록</span></td><td class="num">XLSX · 0.2 MB</td><td class="num">2026-07-03</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="tech" data-group="doc"><td class="num">3</td><td><span class="tag"  data-en="Technical">기술자료</span></td><td class="ttl"><span  data-en="Surface treatment guide">표면처리별 적용 가이드</span></td><td class="num">PDF · 2.1 MB</td><td class="num">2026-05-19</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="form" data-group="doc"><td class="num">2</td><td><span class="tag"  data-en="Forms">양식</span></td><td class="ttl"><span  data-en="RFQ form">견적 요청서(RFQ) 양식</span></td><td class="num">DOCX · 0.1 MB</td><td class="num">2026-03-04</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="form" data-group="doc"><td class="num">1</td><td><span class="tag"  data-en="Forms">양식</span></td><td class="ttl"><span  data-en="Drawing submission checklist">도면 제출 체크리스트</span></td><td class="num">PDF · 0.3 MB</td><td class="num">2026-02-11</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr></tbody></table></div>
+  <p class="empty" id="doc-empty" hidden data-en="No documents match.">조건에 맞는 자료가 없습니다.</p></div></div></section>
+
+<section data-view="about" hidden><div class="sub-vis" style="background-image:url(img/1581092921461-eab62e97a780-l.jpg)"><div class="wrap"><p class="crumb">Home &nbsp;›&nbsp; <span  data-en="About">회사소개</span></p><h1  data-en="About us">회사소개</h1></div></div>
+ <div class="sec sub"><div class="wrap"><p class="sub-lead"  data-en="Twenty-two years in precision machining">22년 동안 정밀가공 한 길</p><p  data-en="Founded in 2004 with three machines, SEON now runs 84 machines and a temperature-controlled metrology lab, meeting both semiconductor and automotive standards.">2004년 공작기계 3대로 시작해 지금은 84대의 가공기와 항온 측정실을 운영합니다. 반도체와 자동차 두 산업의 품질 기준을 모두 충족합니다.</p>
+  <div class="about-img"><img src="img/1504917595217-d4dc5ebe6122-l.jpg" alt=""></div>
+  <div class="two"><div><h2  data-en="Company facts">회사 개요</h2><dl class="facts"><dt  data-en="Founded">설립</dt><dd  data-en="2004">2004년</dd><dt  data-en="Employees">임직원</dt><dd  data-en="186">186명</dd><dt  data-en="Location">소재지</dt><dd  data-en="Namdong-gu, Incheon, Korea (demo address)">인천광역시 남동구 (데모 주소)</dd><dt  data-en="Business">사업 영역</dt><dd  data-en="Precision machining and assembly">정밀 부품 가공, 조립</dd></dl><h2 class="mt"  data-en="Certifications">인증</h2><ul class="certs"><li>ISO 9001</li><li>IATF 16949</li><li>ISO 14001</li><li>ISO 45001</li></ul></div>
+  <div><h2  data-en="History">연혁</h2><ol class="tl"><li><b>2004</b><span  data-en="SEON Precision founded">세온정밀 설립</span></li><li><b>2011</b><span  data-en="Automotive powertrain production begins">자동차 파워트레인 부품 양산 시작</span></li><li><b>2016</b><span  data-en="Clean line for semiconductor parts opens">반도체 장비 부품 전용 클린 라인 구축</span></li><li><b>2021</b><span  data-en="Second plant opens with 30 more 5-axis machines">제2공장 준공, 5축 가공기 30대 증설</span></li><li><b>2025</b><span  data-en="Exports reach USD 30 million">수출 3,000만 달러 달성</span></li></ol></div></div></div></div></section>
+
+<section data-view="contact" hidden><div class="sub-vis" style="background-image:url(img/1581093806997-124204d9fa9d.jpg)"><div class="wrap"><p class="crumb">Home &nbsp;›&nbsp; <span  data-en="Contact">문의</span></p><h1  data-en="Contact">문의</h1></div></div>
+ <div class="sec sub"><div class="wrap two">
+  <form class="form" id="form" novalidate>
+   <label><span  data-en="Company">회사명</span><input id="f-co" required></label>
+   <label><span  data-en="Name">담당자</span><input id="f-name" required></label>
+   <label><span  data-en="Email">이메일</span><input id="f-mail" type="email" required></label>
+   <label><span  data-en="Topic">문의 유형</span><select id="f-type"><option  data-en="Quote">견적 요청</option><option  data-en="Technical advice">기술 상담</option><option  data-en="Documents">자료 요청</option><option  data-en="Other">기타</option></select></label>
+   <label><span  data-en="Message">문의 내용</span><textarea id="f-msg" rows="6"></textarea></label>
+   <button type="submit" data-en="Send inquiry">문의 보내기</button>
+   <p class="note" id="form-note" hidden data-en="This is a demo, so nothing is sent. On a live site the inquiry goes to the sales inbox.">데모 사이트라 실제로 전송되지 않습니다. 실제 구축 시 담당자 메일로 접수됩니다.</p>
+  </form>
+  <div><h2  data-en="Contact details">연락처</h2><dl class="facts"><dt  data-en="Address">주소</dt><dd  data-en="Namdong-gu, Incheon, Korea (demo address)">인천광역시 남동구 (데모 주소)</dd><dt  data-en="Phone">전화</dt><dd>032-000-0000 (demo)</dd>
+   <dt  data-en="Email">이메일</dt><dd>sales@seon.example</dd><dt  data-en="Hours">운영 시간</dt><dd  data-en="Mon–Fri 09:00–18:00 KST">평일 09:00–18:00</dd></dl>
+   <div class="map"><span  data-en="Map area (a live map is embedded on a real site)">지도 영역 (실제 구축 시 지도 연동)</span></div></div>
+ </div></div></section>
+</main>
+<footer class="ft"><div class="wrap">
+ <div><div class="logo"><svg viewBox="0 0 32 32"><rect width="32" height="32" fill="#d9442b"/><path d="M8 21l8-11 8 11" fill="none" stroke="#fff" stroke-width="3"/></svg><span>SEON</span><small  data-en="SEON Precision">세온정밀</small></div><p  data-en="Namdong-gu, Incheon, Korea (demo address) · 032-000-0000 (demo)">인천광역시 남동구 (데모 주소) · 032-000-0000 (demo)</p></div>
+ <div><h4>Sitemap</h4><ul><li><a href=#about data-en="About">회사소개</a></li><li><a href=#products data-en="Products">제품</a></li><li><a href=#process data-en="Process">공정</a></li><li><a href=#library data-en="Resources">자료실</a></li><li><a href=#contact data-en="Contact">문의</a></li></ul></div>
+ <div><h4>Contact</h4><ul><li>sales@seon.example</li><li><span  data-en="Mon–Fri 09:00–18:00 KST">평일 09:00–18:00</span></li></ul></div>
+ <p class="legal"  data-en="Concept site built by aidle. The company, products, figures, certifications and news are fictional; photos are used under the Unsplash License. © 2026 aidle">본 사이트는 aidle이 제작한 컨셉 시안입니다. 등장하는 기업, 제품, 수치, 인증, 소식은 모두 가상이며 사진은 Unsplash 라이선스 이미지입니다. © 2026 aidle</p>
+</div></footer>
+<div class="badge">CONCEPT · built by aidle</div>
+<div class="toast" id="toast" role="status" hidden></div>
+<script>
+(function () {
+  var $$ = function (q, r) { return Array.prototype.slice.call((r || document).querySelectorAll(q)); };
+  var views = $$('[data-view]'), names = views.map(function (v) { return v.dataset.view; });
+  var lang = 'ko';
+  function route() {
+    var h = location.hash.slice(1); if (names.indexOf(h) < 0) h = 'home';
+    views.forEach(function (v) { v.hidden = v.dataset.view !== h; });
+    $$('[data-nav]').forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + h); });
+    document.body.classList.remove('menu-open'); window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route); route();
+
+  var els = $$('[data-en]'); els.forEach(function (e) { e.dataset.ko = e.innerHTML; });
+  var phs = $$('[data-en-ph]'); phs.forEach(function (e) { e.dataset.koPh = e.placeholder; });
+  function setLang(l) {
+    lang = l; document.documentElement.lang = l;
+    els.forEach(function (e) { e.innerHTML = l === 'en' ? e.dataset.en : e.dataset.ko; });
+    phs.forEach(function (e) { e.placeholder = l === 'en' ? e.dataset.enPh : e.dataset.koPh; });
+    $$('[data-lang]').forEach(function (b) { b.classList.toggle('on', b.dataset.lang === l); });
+    try { localStorage.setItem('demo-lang', l); } catch (e) {}
+  }
+  $$('[data-lang]').forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
+  try { if (localStorage.getItem('demo-lang') === 'en') setLang('en'); } catch (e) {}
+
+  var state = { prod: 'all', doc: 'all' }, q = document.getElementById('doc-q');
+  function apply(g) {
+    var term = g === 'doc' ? q.value.trim().toLowerCase() : '', shown = 0;
+    $$('[data-cat][data-group="' + g + '"]').forEach(function (it) {
+      var ok = (state[g] === 'all' || it.dataset.cat === state[g]) &&
+        (!term || it.textContent.toLowerCase().indexOf(term) >= 0);
+      it.hidden = !ok; if (ok) shown++;
+    });
+    if (g === 'doc') document.getElementById('doc-empty').hidden = shown > 0;
+  }
+  $$('.chip').forEach(function (c) {
+    c.addEventListener('click', function () {
+      var g = c.dataset.group; state[g] = c.dataset.filter;
+      $$('.chip[data-group="' + g + '"]').forEach(function (x) { x.classList.toggle('on', x === c); });
+      apply(g);
+    });
+  });
+  q.addEventListener('input', function () { apply('doc'); });
+
+  var toast = document.getElementById('toast'), timer;
+  $$('.dl').forEach(function (b) {
+    b.addEventListener('click', function () {
+      toast.textContent = lang === 'en'
+        ? 'Demo: on a live site this file downloads here.'
+        : '데모입니다. 실제 구축 시 이 버튼으로 파일이 내려받아집니다.';
+      toast.hidden = false; clearTimeout(timer); timer = setTimeout(function () { toast.hidden = true; }, 2600);
+    });
+  });
+  document.getElementById('form').addEventListener('submit', function (e) {
+    e.preventDefault(); document.getElementById('form-note').hidden = false;
+  });
+  document.getElementById('burger').addEventListener('click', function () { document.body.classList.toggle('menu-open'); });
+})();
+(function () {
+  var names = Array.prototype.map.call(document.querySelectorAll('[data-view]'), function (v) { return v.dataset.view; });
+  function st() {
+    var h = location.hash.slice(1); if (names.indexOf(h) < 0) h = 'home';
+    document.body.classList.toggle('on-home', h === 'home');
+    document.body.classList.toggle('scrolled', window.scrollY > 40);
+  }
+  window.addEventListener('hashchange', st); window.addEventListener('scroll', st, { passive: true }); st();
+  var hero = document.querySelector('[data-slider]'); if (!hero) return;
+  var slides = hero.querySelectorAll('.slide'), bar = hero.querySelector('.sl-bar i'), n = hero.querySelector('.sl-n');
+  var i = 0, timer, paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(k) {
+    i = (k + slides.length) % slides.length;
+    Array.prototype.forEach.call(slides, function (s, j) { s.classList.toggle('on', j === i); });
+    if (n) n.textContent = '0' + (i + 1) + ' / 0' + slides.length;
+    Array.prototype.forEach.call(hero.querySelectorAll('[data-go]'), function (b) { b.classList.toggle('on', +b.dataset.go === i); });
+    if (bar) { bar.classList.remove('run'); void bar.offsetWidth; if (!paused) bar.classList.add('run'); }
+    clearTimeout(timer); if (!paused) timer = setTimeout(function () { show(i + 1); }, 6000);
+  }
+  hero.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.sl === 'prev') show(i - 1);
+    else if (b.dataset.sl === 'next') show(i + 1);
+    else if (b.dataset.sl === 'pause') { paused = !paused; b.textContent = paused ? '▶' : '❚❚'; show(i); }
+    else if (b.dataset.go) show(+b.dataset.go);
+  });
+  show(0);
+})();
+
+</script></body></html>

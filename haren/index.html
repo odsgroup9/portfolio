@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>하렌소재 컨셉 사이트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#15181c;--muted:#636a73;--line:#e3e6ea;--alt:#f4f6f6;--dark:#0c0f13;--foot:#0b1f1e;--brand:#0a5c5a;--accent:#18c29c;--title:#0a5c5a;--lat:'Outfit','Noto Sans KR',sans-serif;--kr:'Noto Sans KR',system-ui,sans-serif;--tw:300;--r:20px;--r2:10px;--pill:999px;color-scheme:light}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--kr);font-weight:400;line-height:1.7;font-size:16px;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+ul,ol{list-style:none;padding:0}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+[hidden]{display:none!important}
+h1,h2,h3{font-weight:600;line-height:1.3;letter-spacing:-.02em;text-wrap:balance}
+.wrap{max-width:1360px;margin:0 auto;padding:0 40px}
+.lat{font-family:var(--lat)}
+/* header */
+.hd{position:fixed;inset:0 0 auto 0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line);transition:background .25s,color .25s,border-color .25s}
+.hd-in{max-width:1680px;margin:0 auto;padding:0 40px;height:80px;display:flex;align-items:center;gap:32px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--lat);font-weight:700;font-size:20px;letter-spacing:-.01em;white-space:nowrap}
+.logo svg{width:26px;height:26px;flex:none}
+.logo small{font-family:var(--kr);font-weight:500;font-size:13px;opacity:.7;margin-left:2px}
+.nav{display:flex;gap:8px;margin:0 auto}
+.nav a{padding:10px 18px;font-size:16px;font-weight:500;position:relative}
+.nav a.on::after{content:"";position:absolute;left:18px;right:18px;bottom:2px;height:2px;background:currentColor}
+.util{display:flex;align-items:center;gap:18px}
+.lang{display:flex;gap:2px;font-family:var(--lat);font-size:13px;font-weight:600}
+.lang button{border:0;background:none;padding:4px 6px;opacity:.45}
+.lang button.on{opacity:1}
+.hd-cta{font-size:14px;font-weight:600;padding:9px 18px;border:1px solid currentColor;border-radius:var(--pill)}
+.burger{display:none;border:0;background:none;font-size:22px;width:40px;height:40px}
+body.on-home.tp:not(.scrolled):not(.menu-open) .hd{background:transparent;color:#fff;border-color:rgba(255,255,255,.18)}
+main{padding-top:80px}
+body.on-home.tp main{padding-top:0}
+/* hero slider */
+.hero{position:relative;height:clamp(560px,88vh,900px);overflow:hidden;background:#0b0d10;color:#fff}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1s}
+.slide.on{opacity:1}
+.slide::before{content:"";position:absolute;inset:0;background:var(--shade,linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.15) 40%,rgba(0,0,0,.6)))}
+.hero-txt{position:absolute;left:0;right:0;bottom:150px;max-width:1360px;margin:0 auto;padding:0 40px}
+.hero-txt .k{font-size:15px;font-weight:500;opacity:.9;margin-bottom:14px}
+.hero-txt h1{font-size:clamp(30px,4.2vw,56px);font-weight:600;line-height:1.28}
+.hero-txt p.d{font-size:17px;opacity:.88;margin-top:16px;max-width:34em}
+.hero-ctl{position:absolute;left:0;right:0;bottom:70px;max-width:1360px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:18px;font-family:var(--lat);font-size:14px}
+.hero-ctl button{background:none;border:1px solid rgba(255,255,255,.6);color:#fff;width:38px;height:38px;border-radius:50%;font-size:12px}
+.sl-bar{width:180px;height:2px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.sl-bar i{position:absolute;inset:0;background:#fff;transform-origin:left;transform:scaleX(0)}
+.sl-bar i.run{animation:bar 6s linear forwards}
+@keyframes bar{to{transform:scaleX(1)}}
+/* sections */
+.sec{padding:120px 0}
+.sec.alt{background:var(--alt)}
+.sec.dark{background:var(--dark);color:#fff}
+.center{text-align:center}
+.sec-t{font-family:var(--lat);font-size:clamp(38px,5vw,68px);font-weight:var(--tw);letter-spacing:-.02em;line-height:1.1;color:var(--title)}
+.sec.dark .sec-t{color:#fff}
+.sec-d{font-size:18px;color:var(--muted);margin-top:18px}
+.sec.dark .sec-d{color:rgba(255,255,255,.7)}
+.sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.sec-h h2{font-size:clamp(26px,3vw,40px)}
+.eb{font-family:var(--lat);font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--brand);margin-bottom:12px}
+.sec.dark .eb{color:rgba(255,255,255,.75)}
+.go{display:inline-flex;align-items:center;gap:10px;border:1px solid currentColor;border-radius:var(--pill);padding:11px 22px;font-size:14.5px;font-weight:500}
+.go::after{content:"→"}
+.go.fill{background:var(--brand);border-color:var(--brand);color:#fff}
+.figs{display:grid;grid-template-columns:repeat(4,1fr)}
+.figs div{padding:8px 32px;border-left:1px solid var(--line)}
+.figs div:first-child{border-left:0;padding-left:0}
+.sec.dark .figs div{border-color:rgba(255,255,255,.2)}
+.figs b{display:block;font-family:var(--lat);font-size:clamp(34px,4vw,56px);font-weight:var(--tw);letter-spacing:-.02em;line-height:1.15;font-variant-numeric:tabular-nums}
+.figs span{font-size:15px;color:var(--muted)}
+.sec.dark .figs span{color:rgba(255,255,255,.65)}
+/* news */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.news a{border-top:2px solid var(--ink);padding-top:22px;display:flex;flex-direction:column;gap:12px;min-height:190px}
+.news .c{font-size:13px;font-weight:600;color:var(--brand)}
+.news h3{font-size:20px;font-weight:500;line-height:1.5}
+.news time{margin-top:auto;font-family:var(--lat);font-size:14px;color:var(--muted)}
+/* sub pages */
+.sub-vis{height:340px;background-size:cover;background-position:center;position:relative;color:#fff;display:flex;align-items:flex-end}
+.sub-vis::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,18,.78),rgba(8,12,18,.35))}
+.sub-vis .wrap{position:relative;width:100%;padding-bottom:48px}
+.crumb{font-size:13.5px;opacity:.75;margin-bottom:12px;font-family:var(--lat)}
+.sub-vis h1{font-size:clamp(30px,3.6vw,46px)}
+.sub-lead{font-size:clamp(20px,2.2vw,28px);font-weight:500;line-height:1.5;max-width:30em;letter-spacing:-.02em}
+.sub-lead+p{color:var(--muted);margin-top:16px;max-width:44em;font-size:17px}
+.sec.sub{padding:80px 0 120px}
+.mt{margin-top:56px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--bg);border-radius:var(--pill);padding:9px 20px;font-size:15px}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 28px}
+.pcard{display:flex;flex-direction:column;gap:10px}
+.pcard .ph{aspect-ratio:4/3;overflow:hidden;border-radius:var(--r);background:var(--alt);margin-bottom:10px}
+.pcard .ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pcard:hover .ph img{transform:scale(1.04)}
+.code{font-family:var(--lat);font-size:13px;font-weight:600;color:var(--brand);letter-spacing:.04em}
+.pcard h3{font-size:21px}
+.pcard p{color:var(--muted);font-size:15px}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:14px;border-top:1px solid var(--line);padding-top:14px;margin-top:8px}
+.spec dt{color:var(--muted)}
+.spec dd{text-align:right;font-family:var(--lat);font-weight:500;font-variant-numeric:tabular-nums}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);counter-reset:s;border-top:1px solid var(--ink)}
+.step{padding:28px 20px 0 0;position:relative;display:flex;flex-direction:column;gap:8px}
+.step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--lat);font-size:40px;font-weight:var(--tw);color:var(--brand);line-height:1}
+.step::after{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:var(--brand)}
+.step h3{font-size:19px;margin-top:8px}
+.step p{font-size:14.5px;color:var(--muted)}
+.metric{font-family:var(--lat);font-size:13.5px;font-weight:600;margin-top:6px}
+.proc-img{border-radius:var(--r);overflow:hidden;aspect-ratio:21/8;margin-bottom:64px}
+.proc-img img{width:100%;height:100%;object-fit:cover}
+.board-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:24px}
+#doc-q{border:0;border-bottom:1px solid var(--ink);padding:10px 4px;min-width:260px;background:none}
+.board-wrap{overflow-x:auto}
+.board{width:100%;border-collapse:collapse;min-width:680px;font-size:15.5px;border-top:2px solid var(--ink)}
+.board th{font-size:14px;font-weight:500;padding:16px 14px;border-bottom:1px solid var(--line);text-align:left;color:var(--muted)}
+.board td{padding:20px 14px;border-bottom:1px solid var(--line)}
+.board .num{font-family:var(--lat);font-size:14px;color:var(--muted);white-space:nowrap}
+.board .ttl{font-weight:500}
+.tag{font-size:13px;color:var(--brand);font-weight:600;white-space:nowrap}
+.dl{border:1px solid var(--line);background:none;border-radius:var(--pill);padding:7px 16px;font-size:13.5px;white-space:nowrap}
+.dl:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.empty{padding:40px;text-align:center;color:var(--muted)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.two h2{font-size:26px}
+.facts{display:grid;grid-template-columns:120px 1fr;margin-top:20px;border-top:1px solid var(--ink)}
+.facts dt,.facts dd{padding:16px 4px;border-bottom:1px solid var(--line)}
+.facts dt{color:var(--muted)}
+.certs{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.certs li{border:1px solid var(--line);border-radius:var(--pill);padding:8px 18px;font-family:var(--lat);font-size:14px;font-weight:500}
+.tl{margin-top:20px;border-top:1px solid var(--ink)}
+.tl li{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:18px 4px;border-bottom:1px solid var(--line)}
+.tl b{font-family:var(--lat);font-size:20px;font-weight:600;color:var(--brand)}
+.about-img{border-radius:var(--r);overflow:hidden;aspect-ratio:21/9;margin:56px 0}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.form{display:grid;gap:20px}
+.form label{display:grid;gap:8px;font-size:14.5px;font-weight:500}
+.form input,.form select,.form textarea{background:var(--bg);border:1px solid var(--line);border-radius:var(--r2);padding:13px 14px;width:100%}
+.form button{justify-self:start;background:var(--brand);color:#fff;border:0;border-radius:var(--pill);padding:14px 34px;font-weight:600}
+.note{font-size:14.5px;border-left:3px solid var(--brand);padding:12px 16px;background:var(--alt)}
+.map{margin-top:28px;aspect-ratio:16/9;border-radius:var(--r);background:var(--alt);display:grid;place-items:center;color:var(--muted);font-size:14px;text-align:center;padding:16px}
+/* footer */
+.ft{background:var(--foot);color:rgba(255,255,255,.7);padding:72px 0 48px;font-size:14.5px}
+.ft .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
+.ft .logo{color:#fff;margin-bottom:18px}
+.ft h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:14px}
+.ft li{padding:3px 0}
+.ft .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:24px;font-size:13px}
+.badge{position:fixed;left:16px;bottom:16px;z-index:50;background:rgba(15,18,22,.86);color:#fff;font-size:12px;padding:7px 12px;border-radius:999px;font-family:var(--lat);letter-spacing:.02em}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#111;color:#fff;padding:13px 20px;border-radius:10px;font-size:14.5px;max-width:calc(100% - 32px);z-index:60}
+@media(max-width:1080px){.pgrid{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(3,1fr);row-gap:40px}.nav a{padding:10px 10px}}
+@media(max-width:900px){
+.wrap,.hd-in,.hero-txt,.hero-ctl{padding-left:20px;padding-right:20px}.hd-in{height:64px;gap:12px}main{padding-top:64px}
+.burger{display:block}.hd-cta{display:none}.util{margin-left:auto}
+.nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);color:var(--ink);padding:8px 20px 20px;border-bottom:1px solid var(--line);margin:0}
+.menu-open .nav{display:flex}.nav a.on::after{display:none}
+.sec{padding:72px 0}.sec.sub{padding:48px 0 72px}.two{grid-template-columns:1fr;gap:48px}
+.figs{grid-template-columns:repeat(2,1fr);row-gap:28px}.figs div:nth-child(3){border-left:0;padding-left:0}.figs div{padding:4px 20px}
+.news{grid-template-columns:1fr}.news a{min-height:0}.ft .wrap{grid-template-columns:1fr}.ft .legal{grid-column:auto}
+.hero-txt{bottom:120px}.hero-ctl{bottom:48px}.sub-vis{height:240px}}
+@media(max-width:600px){.pgrid,.flow{grid-template-columns:1fr}.sl-bar{width:90px}}
+@media(prefers-reduced-motion:reduce){.slide,.pcard .ph img{transition:none}.sl-bar i.run{animation:none}html{scroll-behavior:auto}}
+
+main{overflow-x:clip}.uc div{flex-wrap:wrap}.slide{pointer-events:none}.slide.on{pointer-events:auto}
+.hero-a{border-radius:0 0 40px 40px}.hero-a h1,.hero-a .h1{font-family:var(--lat);font-weight:300;font-size:clamp(34px,4.8vw,66px);line-height:1.15}
+.biz3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:72px;text-align:left}
+.biz .ph{background:var(--alt);border-radius:24px;padding:22px;aspect-ratio:4/3}.biz .ph img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+.biz h3{font-size:23px;margin-top:22px}.biz small{color:var(--muted);font-size:15px}
+.strip4{display:grid;grid-template-columns:repeat(4,1fr);margin-top:72px}.strip4 figure{position:relative;aspect-ratio:3/4;overflow:hidden;margin:0}
+.strip4 img{width:100%;height:100%;object-fit:cover}.strip4 figcaption{position:absolute;inset:auto 0 0 0;padding:60px 24px 24px;color:#fff;text-align:left;font-size:18px;font-weight:500;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+.rnd{border-radius:28px;padding:110px 40px;text-align:center;color:#fff;background-size:cover;background-position:center;display:grid;gap:22px;justify-items:center}
+.rnd .sec-t{color:#fff}.rnd p{max-width:34em;opacity:.9;font-size:17px}
+@media(max-width:900px){.biz3{grid-template-columns:1fr}.strip4{grid-template-columns:repeat(2,1fr)}.rnd{padding:72px 24px}}
+</style></head>
+<body class="haren tp on-home">
+<header class="hd" id="hd"><div class="hd-in">
+<a class="logo" href="#home"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M16 2.5l11.7 6.75v13.5L16 29.5 4.3 22.75V9.25z"/><circle cx="16" cy="16" r="4" fill="#18c29c" stroke="none"/></svg><span>HAREN</span><small  data-en="HAREN Materials">하렌소재</small></a>
+<nav class="nav" id="nav"><a href="#about" data-nav data-en="About">회사소개</a><a href="#products" data-nav data-en="Products">제품</a><a href="#process" data-nav data-en="Process">공정</a><a href="#library" data-nav data-en="Resources">자료실</a><a href="#contact" data-nav data-en="Contact">문의</a></nav>
+<div class="util"><div class="lang" role="group" aria-label="Language"><button type="button" data-lang="ko" class="on">KR</button><button type="button" data-lang="en">EN</button></div>
+<a class="hd-cta" href=#contact data-en="Get a quote">견적 문의</a><button class="burger" type="button" id="burger" aria-label="Menu">☰</button></div>
+</div></header>
+<main>
+<section data-view="home"><section class="hero hero-a" data-slider><div class="slide on" style="background-image:url(img/1581092335397-9583eb92d232-l.jpg)"><div class="hero-txt"><h1  data-en="Materials that perform, unseen">Materials that perform, unseen</h1><p class="d"  data-en="Functional materials that complete product performance where no one looks">보이지 않는 곳에서 제품의 성능을 완성하는 기능성 소재</p></div></div><div class="slide" style="background-image:url(img/1532187863486-abf9dbad1b69-l.jpg)"><div class="hero-txt"><p class="h1"  data-en="Formulated for your process">Formulated for your process</p><p class="d"  data-en="Reformulated from the ground up to fit each customer&#x27;s process">고객 공정 조건에 맞춰 배합부터 다시 설계합니다</p></div></div><div class="slide" style="background-image:url(img/1581093450021-4a7360e9a6b5-l.jpg)"><div class="hero-txt"><p class="h1"  data-en="R&amp;D at the core">R&D at the core</p><p class="d"  data-en="Four in ten employees work in research and development">임직원 열 명 중 네 명이 연구개발 인력입니다</p></div></div><div class="hero-ctl"><button type="button" data-sl="pause" aria-label="Pause">❚❚</button><div class="sl-bar"><i></i></div><span class="sl-n">01 / 03</span><button type="button" data-sl="prev" aria-label="Previous">‹</button><button type="button" data-sl="next" aria-label="Next">›</button></div></section><section class="sec center"><h2 class="sec-t">Business</h2><p class="sec-d"  data-en="A functional materials company that never stops reformulating.">끊임없이 배합을 다시 쓰는 기능성 소재 기업입니다.</p><div class="wrap"><div class="biz3"><a class="biz" href="#products"><div class="ph"><img src="img/1562408590-e32931084e23.jpg" alt=""></div><h3  data-en="Electronics and display">전자·디스플레이</h3><small  data-en="Optical adhesives, thermal materials, underfill">광학 점착제, 방열 소재, 언더필</small></a><a class="biz" href="#products"><div class="ph"><img src="img/1518770660439-4636190af475.jpg" alt=""></div><h3  data-en="Mobility and battery">모빌리티·배터리</h3><small  data-en="Structural adhesives and cell protection coatings">구조용 접착제와 셀 보호 코팅</small></a><a class="biz" href="#products"><div class="ph"><img src="img/1532094349884-543bc11b234d.jpg" alt=""></div><h3  data-en="Industrial coatings">산업용 코팅</h3><small  data-en="Hard coats and waterborne functional coatings">하드코팅과 수성 기능성 코팅</small></a></div></div></section><section class="sec center" style="padding-bottom:0"><h2 class="sec-t">Sustainability</h2><p class="sec-d"  data-en="Materials made with the next generation in mind.">다음 세대를 위한 소재를 만듭니다.</p><div class="strip4"><figure><img src="img/1509391366360-2e959784a276.jpg" alt=""><figcaption  data-en="Renewable energy">재생에너지 전환</figcaption></figure><figure><img src="img/1466611653911-95081537e5b7.jpg" alt=""><figcaption  data-en="Carbon roadmap">탄소 감축 로드맵</figcaption></figure><figure><img src="img/1487875961445-47a00398c267.jpg" alt=""><figcaption  data-en="Greener feedstock">친환경 원료 확대</figcaption></figure><figure><img src="img/1473341304170-971dccb5ac1e.jpg" alt=""><figcaption  data-en="Responsible supply chain">책임 있는 공급망</figcaption></figure></div></section><section class="sec"><div class="wrap"><div class="rnd" style="background-image:linear-gradient(120deg,rgba(6,50,48,.93),rgba(10,92,90,.72)),url(img/1579154204601-01588f351e67-l.jpg)"><h2 class="sec-t">R&amp;D</h2><p  data-en="64 patents and 38% of staff in R&amp;D. Share your target properties and get a tailored sample in two weeks.">특허 64건, 연구개발 인력 38%. 요구 물성을 알려주시면 2주 안에 맞춤 샘플을 보냅니다.</p><a class="go" href=#contact data-en="Request a sample">샘플 요청</a></div></div></section><section class="sec alt"><div class="wrap"><div class="figs"><div><b>64</b><span  data-en="Patents granted">등록 특허</span></div><div><b>38 %</b><span  data-en="Staff in R&amp;D">연구개발 인력 비율</span></div><div><b>9,800 t</b><span  data-en="Annual capacity">연간 생산 능력</span></div><div><b>310</b><span  data-en="Customers">거래 고객사</span></div></div></div></section><section class="sec"><div class="wrap"><div class="sec-h"><h2 class="sec-t" style="font-size:clamp(32px,3.6vw,48px)">News</h2><a class="go" href=#home data-en="All news">전체 소식</a></div><div class="news"><a href="#home"><span class="c"  data-en="Product">제품</span><h3  data-en="HR-F450 cell coating approved by a global automotive tier-1">배터리 셀 난연 코팅 HR-F450, 글로벌 완성차 협력사 승인 획득</h3><time>2026.10.28</time></a><a href="#home"><span class="c"  data-en="Company">경영</span><h3  data-en="Second plant brings annual capacity to 9,800 t">제2공장 가동으로 연간 생산 능력 9,800톤 확보</h3><time>2026.09.15</time></a><a href="#home"><span class="c"  data-en="ESG">ESG</span><h3  data-en="2026 sustainability report published">2026 지속가능경영보고서 발간</h3><time>2026.07.09</time></a></div></div></section></section>
+
+<section data-view="products" hidden><div class="sub-vis" style="background-image:url(img/1532094349884-543bc11b234d-l.jpg)"><div class="wrap"><p class="crumb">Home &nbsp;›&nbsp; <span  data-en="Products">제품</span></p><h1  data-en="Product portfolio">제품 포트폴리오</h1></div></div>
+ <div class="sec sub"><div class="wrap"><p class="sub-lead"  data-en="Typical properties of representative grades. Viscosity, cure and color are adjusted on request.">대표 등급의 물성입니다. 점도, 경화 조건, 색상은 요청에 따라 조정합니다.</p><div class="chips mt"><button class="chip on" data-filter="all" data-group="prod" data-en="All">전체</button><button class="chip" data-filter="elec" data-group="prod" data-en="Electronics and display">전자·디스플레이</button><button class="chip" data-filter="mob" data-group="prod" data-en="Mobility and battery">모빌리티·배터리</button><button class="chip" data-filter="ind" data-group="prod" data-en="Industrial coatings">산업용 코팅</button></div><div class="pgrid mt"><article class="pcard" data-cat="elec" data-group="prod"><div class="ph"><img src="img/1562408590-e32931084e23.jpg" alt=""></div><span class="code">HR-O100</span><h3  data-en="Optically clear adhesive (OCA)">광학용 투명 점착제 (OCA)</h3><p  data-en="Bubble-free lamination of cover window to panel">커버 윈도와 패널을 기포 없이 합지합니다</p><dl class="spec"><dt  data-en="Transmittance">전광선 투과율</dt><dd>99.2 %</dd><dt  data-en="Haze">헤이즈</dt><dd>0.3 %</dd><dt  data-en="Peel strength">박리 강도</dt><dd>22 N/25mm</dd></dl></article><article class="pcard" data-cat="elec" data-group="prod"><div class="ph"><img src="img/1518770660439-4636190af475.jpg" alt=""></div><span class="code">HR-T350</span><h3  data-en="Thermal gap filler">방열 갭필러</h3><p  data-en="Fills the gap between heat source and heat sink">발열 부품과 방열판 사이 공극을 채웁니다</p><dl class="spec"><dt  data-en="Thermal conductivity">열전도도</dt><dd>3.5 W/m·K</dd><dt  data-en="Hardness">경도</dt><dd>Shore 00 45</dd><dt  data-en="Dielectric strength">절연 파괴</dt><dd>12 kV/mm</dd></dl></article><article class="pcard" data-cat="elec" data-group="prod"><div class="ph"><img src="img/1582719471384-894fbb16e074.jpg" alt=""></div><span class="code">HR-U210</span><h3  data-en="Capillary underfill">캐필러리 언더필</h3><p  data-en="Low-viscosity resin that fills fine-pitch bumps fast">미세 범프 사이를 빠르게 채우는 저점도 수지</p><dl class="spec"><dt  data-en="Viscosity">점도</dt><dd>8 Pa·s</dd><dt  data-en="Tg">Tg</dt><dd>135 ℃</dd><dt  data-en="CTE">CTE</dt><dd>28 ppm/℃</dd></dl></article><article class="pcard" data-cat="mob" data-group="prod"><div class="ph"><img src="img/1581093450021-4a7360e9a6b5.jpg" alt=""></div><span class="code">HR-S720</span><h3  data-en="Structural epoxy adhesive">구조용 에폭시 접착제</h3><p  data-en="Two-part adhesive for dissimilar metals and composites">이종 금속과 복합재를 접합하는 2액형 접착제</p><dl class="spec"><dt  data-en="Lap shear">전단 강도</dt><dd>28 MPa</dd><dt  data-en="Elongation">신율</dt><dd>12 %</dd><dt  data-en="Cure">경화</dt><dd>80 ℃ / 30 min</dd></dl></article><article class="pcard" data-cat="mob" data-group="prod"><div class="ph"><img src="img/1532187863486-abf9dbad1b69.jpg" alt=""></div><span class="code">HR-F450</span><h3  data-en="Flame-retardant cell coating">배터리 셀 난연 코팅</h3><p  data-en="Intumescent coating that slows thermal runaway">열폭주 전파를 늦추는 팽창형 코팅</p><dl class="spec"><dt  data-en="Flammability">난연 등급</dt><dd>UL 94 V-0</dd><dt  data-en="Film thickness">도막 두께</dt><dd>150 μm</dd><dt  data-en="Withstand voltage">내전압</dt><dd>4 kV</dd></dl></article><article class="pcard" data-cat="ind" data-group="prod"><div class="ph"><img src="img/1532094349884-543bc11b234d.jpg" alt=""></div><span class="code">HR-H400</span><h3  data-en="UV-curable hard coat">UV 경화 하드코팅</h3><p  data-en="Adds scratch resistance to plastic surfaces">플라스틱 표면에 내스크래치성을 부여합니다</p><dl class="spec"><dt  data-en="Pencil hardness">연필 경도</dt><dd>4H</dd><dt  data-en="Cure energy">경화 에너지</dt><dd>600 mJ/cm²</dd><dt  data-en="Adhesion">부착력</dt><dd>5B</dd></dl></article></div></div></div></section>
+
+<section data-view="process" hidden><div class="sub-vis" style="background-image:url(img/1579154204601-01588f351e67-l.jpg)"><div class="wrap"><p class="crumb">Home &nbsp;›&nbsp; <span  data-en="Process">공정</span></p><h1  data-en="Six steps from formulation to shipment">배합에서 출하까지 여섯 단계</h1></div></div>
+ <div class="sec sub"><div class="wrap"><p class="sub-lead"  data-en="Raw material lots and process conditions are recorded for every batch, so the same properties can be reproduced ten years later.">모든 배치는 원료 로트와 공정 조건이 기록되어, 10년 뒤에도 같은 물성을 재현할 수 있습니다.</p><ol class="flow mt"><li class="step"><h3  data-en="Raw material check">원료 검수</h3><p  data-en="Analyze purity and moisture of incoming materials">입고 원료의 순도와 수분을 분석합니다</p><span class="metric">KF < 200 ppm</span></li><li class="step"><h3  data-en="Weighing and mixing">계량·배합</h3><p  data-en="Automated weighing limits formulation error">자동 계량으로 배합 오차를 줄입니다</p><span class="metric">±0.1 %</span></li><li class="step"><h3  data-en="Dispersion and reaction">분산·반응</h3><p  data-en="Temperature and agitation under automatic control">온도와 교반 속도를 자동 제어합니다</p><span class="metric">±1 ℃</span></li><li class="step"><h3  data-en="Filtration and degassing">여과·탈포</h3><p  data-en="Remove particles and bubbles">이물과 기포를 제거합니다</p><span class="metric">5 μm</span></li><li class="step"><h3  data-en="Property testing">물성 검사</h3><p  data-en="Measure viscosity, adhesion and optical properties">점도, 접착력, 광학 물성을 측정합니다</p><span class="metric">COA 발행</span></li><li class="step"><h3  data-en="Filling and shipping">충전·출하</h3><p  data-en="Filled in a cleanroom, shipped temperature-controlled">클린룸에서 충전하고 온도 관리 차량으로 출하합니다</p><span class="metric">Class 1,000</span></li></ol></div></div>
+ <div class="sec alt"><div class="wrap"><div class="sec-h"><h2  data-en="The same properties, batch after batch">배치마다 같은 물성</h2></div><div class="figs"><div><b>±3 %</b><span  data-en="Batch-to-batch viscosity">배치 간 점도 편차</span></div><div><b>100 %</b><span  data-en="Batches with COA">성적서(COA) 발행</span></div><div><b>0</b><span  data-en="Restricted substance violations">유해물질 규제 위반</span></div><div><b>10년</b><span  data-en="Batch record retention">배치 기록 보관</span></div></div></div></div></section>
+
+<section data-view="library" hidden><div class="sub-vis" style="background-image:url(img/1582719471384-894fbb16e074.jpg)"><div class="wrap"><p class="crumb">Home &nbsp;›&nbsp; <span  data-en="Resources">자료실</span></p><h1  data-en="Resources">자료실</h1></div></div>
+ <div class="sec sub"><div class="wrap"><div class="board-top"><div class="chips"><button class="chip on" data-filter="all" data-group="doc" data-en="All">전체</button><button class="chip" data-filter="catalog" data-group="doc" data-en="Catalogs">카탈로그</button><button class="chip" data-filter="cert" data-group="doc" data-en="Certificates">인증서</button><button class="chip" data-filter="tech" data-group="doc" data-en="Technical">기술자료</button><button class="chip" data-filter="form" data-group="doc" data-en="Forms">양식</button></div>
+  <input id="doc-q" type="search" placeholder="제목 검색" data-en-ph="Search titles" aria-label="Search"></div>
+  <div class="board-wrap"><table class="board"><thead><tr><th  data-en="No.">번호</th><th  data-en="Category">분류</th><th  data-en="Title">제목</th><th  data-en="File">파일</th><th  data-en="Date">등록일</th><th></th></tr></thead><tbody><tr data-cat="catalog" data-group="doc"><td class="num">8</td><td><span class="tag"  data-en="Catalogs">카탈로그</span></td><td class="ttl"><span  data-en="Product catalog">하렌소재 제품 종합 카탈로그</span></td><td class="num">PDF · 11.3 MB</td><td class="num">2026-10-28</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="tech" data-group="doc"><td class="num">7</td><td><span class="tag"  data-en="Technical">기술자료</span></td><td class="ttl"><span  data-en="HR-O100 technical data sheet">HR-O100 기술자료(TDS)</span></td><td class="num">PDF · 0.8 MB</td><td class="num">2026-10-02</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="tech" data-group="doc"><td class="num">6</td><td><span class="tag"  data-en="Technical">기술자료</span></td><td class="ttl"><span  data-en="HR-T350 technical data sheet">HR-T350 기술자료(TDS)</span></td><td class="num">PDF · 0.7 MB</td><td class="num">2026-09-15</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="tech" data-group="doc"><td class="num">5</td><td><span class="tag"  data-en="Technical">기술자료</span></td><td class="ttl"><span  data-en="HR-S720 safety data sheet">HR-S720 물질안전보건자료(MSDS)</span></td><td class="num">PDF · 0.5 MB</td><td class="num">2026-08-21</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="cert" data-group="doc"><td class="num">4</td><td><span class="tag"  data-en="Certificates">인증서</span></td><td class="ttl"><span  data-en="RoHS and REACH statement">RoHS·REACH 적합 확인서</span></td><td class="num">PDF · 0.4 MB</td><td class="num">2026-07-09</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="cert" data-group="doc"><td class="num">3</td><td><span class="tag"  data-en="Certificates">인증서</span></td><td class="ttl"><span  data-en="ISO 9001 and 14001 certificates">ISO 9001·14001 인증서</span></td><td class="num">PDF · 1.1 MB</td><td class="num">2026-06-30</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="form" data-group="doc"><td class="num">2</td><td><span class="tag"  data-en="Forms">양식</span></td><td class="ttl"><span  data-en="Sample request form">샘플 요청서</span></td><td class="num">DOCX · 0.1 MB</td><td class="num">2026-04-16</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr><tr data-cat="form" data-group="doc"><td class="num">1</td><td><span class="tag"  data-en="Forms">양식</span></td><td class="ttl"><span  data-en="Target property check sheet">요구 물성 체크시트</span></td><td class="num">XLSX · 0.1 MB</td><td class="num">2026-02-05</td><td><button class="dl" type="button" data-en="Download">내려받기</button></td></tr></tbody></table></div>
+  <p class="empty" id="doc-empty" hidden data-en="No documents match.">조건에 맞는 자료가 없습니다.</p></div></div></section>
+
+<section data-view="about" hidden><div class="sub-vis" style="background-image:url(img/1581093450021-4a7360e9a6b5-l.jpg)"><div class="wrap"><p class="crumb">Home &nbsp;›&nbsp; <span  data-en="About">회사소개</span></p><h1  data-en="About us">회사소개</h1></div></div>
+ <div class="sec sub"><div class="wrap"><p class="sub-lead"  data-en="Pushing product limits through materials">소재로 제품의 한계를 넓힙니다</p><p  data-en="Founded in 2009 by five researchers. Four in ten employees work in R&amp;D, and 9% of revenue goes back into research.">2009년 연구원 다섯 명이 세운 회사입니다. 직원 열 명 중 네 명이 연구개발을 맡고, 매출의 9%를 연구에 다시 투자합니다.</p>
+  <div class="about-img"><img src="img/1579154204601-01588f351e67-l.jpg" alt=""></div>
+  <div class="two"><div><h2  data-en="Company facts">회사 개요</h2><dl class="facts"><dt  data-en="Founded">설립</dt><dd  data-en="2009">2009년</dd><dt  data-en="Employees">임직원</dt><dd  data-en="132">132명</dd><dt  data-en="Location">소재지</dt><dd  data-en="Namdong-gu, Incheon, Korea (demo address)">인천광역시 남동구 (데모 주소)</dd><dt  data-en="Business">사업 영역</dt><dd  data-en="Development and manufacture of functional adhesives and coatings">기능성 접착제·코팅제 개발 및 제조</dd></dl><h2 class="mt"  data-en="Certifications">인증</h2><ul class="certs"><li>ISO 9001</li><li>ISO 14001</li><li>IATF 16949</li><li>RoHS</li><li>REACH</li></ul></div>
+  <div><h2  data-en="History">연혁</h2><ol class="tl"><li><b>2009</b><span  data-en="HAREN Materials founded">하렌소재 설립</span></li><li><b>2013</b><span  data-en="OCA mass production begins">광학용 점착제 양산 시작</span></li><li><b>2018</b><span  data-en="R&amp;D center relocated and expanded">기업부설연구소 확장 이전</span></li><li><b>2022</b><span  data-en="Battery flame-retardant coating launched">배터리용 난연 코팅 출시</span></li><li><b>2026</b><span  data-en="Second plant online; capacity reaches 9,800 t">제2공장 가동, 연산 9,800톤 확보</span></li></ol></div></div></div></div></section>
+
+<section data-view="contact" hidden><div class="sub-vis" style="background-image:url(img/1581092335397-9583eb92d232-l.jpg)"><div class="wrap"><p class="crumb">Home &nbsp;›&nbsp; <span  data-en="Contact">문의</span></p><h1  data-en="Contact">문의</h1></div></div>
+ <div class="sec sub"><div class="wrap two">
+  <form class="form" id="form" novalidate>
+   <label><span  data-en="Company">회사명</span><input id="f-co" required></label>
+   <label><span  data-en="Name">담당자</span><input id="f-name" required></label>
+   <label><span  data-en="Email">이메일</span><input id="f-mail" type="email" required></label>
+   <label><span  data-en="Topic">문의 유형</span><select id="f-type"><option  data-en="Quote">견적 요청</option><option  data-en="Technical advice">기술 상담</option><option  data-en="Documents">자료 요청</option><option  data-en="Other">기타</option></select></label>
+   <label><span  data-en="Message">문의 내용</span><textarea id="f-msg" rows="6"></textarea></label>
+   <button type="submit" data-en="Send inquiry">문의 보내기</button>
+   <p class="note" id="form-note" hidden data-en="This is a demo, so nothing is sent. On a live site the inquiry goes to the sales inbox.">데모 사이트라 실제로 전송되지 않습니다. 실제 구축 시 담당자 메일로 접수됩니다.</p>
+  </form>
+  <div><h2  data-en="Contact details">연락처</h2><dl class="facts"><dt  data-en="Address">주소</dt><dd  data-en="Namdong-gu, Incheon, Korea (demo address)">인천광역시 남동구 (데모 주소)</dd><dt  data-en="Phone">전화</dt><dd>032-000-0000 (demo)</dd>
+   <dt  data-en="Email">이메일</dt><dd>sales@haren.example</dd><dt  data-en="Hours">운영 시간</dt><dd  data-en="Mon–Fri 09:00–18:00 KST">평일 09:00–18:00</dd></dl>
+   <div class="map"><span  data-en="Map area (a live map is embedded on a real site)">지도 영역 (실제 구축 시 지도 연동)</span></div></div>
+ </div></div></section>
+</main>
+<footer class="ft"><div class="wrap">
+ <div><div class="logo"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M16 2.5l11.7 6.75v13.5L16 29.5 4.3 22.75V9.25z"/><circle cx="16" cy="16" r="4" fill="#18c29c" stroke="none"/></svg><span>HAREN</span><small  data-en="HAREN Materials">하렌소재</small></div><p  data-en="Namdong-gu, Incheon, Korea (demo address) · 032-000-0000 (demo)">인천광역시 남동구 (데모 주소) · 032-000-0000 (demo)</p></div>
+ <div><h4>Sitemap</h4><ul><li><a href=#about data-en="About">회사소개</a></li><li><a href=#products data-en="Products">제품</a></li><li><a href=#process data-en="Process">공정</a></li><li><a href=#library data-en="Resources">자료실</a></li><li><a href=#contact data-en="Contact">문의</a></li></ul></div>
+ <div><h4>Contact</h4><ul><li>sales@haren.example</li><li><span  data-en="Mon–Fri 09:00–18:00 KST">평일 09:00–18:00</span></li></ul></div>
+ <p class="legal"  data-en="Concept site built by aidle. The company, products, figures, certifications and news are fictional; photos are used under the Unsplash License. © 2026 aidle">본 사이트는 aidle이 제작한 컨셉 시안입니다. 등장하는 기업, 제품, 수치, 인증, 소식은 모두 가상이며 사진은 Unsplash 라이선스 이미지입니다. © 2026 aidle</p>
+</div></footer>
+<div class="badge">CONCEPT · built by aidle</div>
+<div class="toast" id="toast" role="status" hidden></div>
+<script>
+(function () {
+  var $$ = function (q, r) { return Array.prototype.slice.call((r || document).querySelectorAll(q)); };
+  var views = $$('[data-view]'), names = views.map(function (v) { return v.dataset.view; });
+  var lang = 'ko';
+  function route() {
+    var h = location.hash.slice(1); if (names.indexOf(h) < 0) h = 'home';
+    views.forEach(function (v) { v.hidden = v.dataset.view !== h; });
+    $$('[data-nav]').forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + h); });
+    document.body.classList.remove('menu-open'); window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route); route();
+
+  var els = $$('[data-en]'); els.forEach(function (e) { e.dataset.ko = e.innerHTML; });
+  var phs = $$('[data-en-ph]'); phs.forEach(function (e) { e.dataset.koPh = e.placeholder; });
+  function setLang(l) {
+    lang = l; document.documentElement.lang = l;
+    els.forEach(function (e) { e.innerHTML = l === 'en' ? e.dataset.en : e.dataset.ko; });
+    phs.forEach(function (e) { e.placeholder = l === 'en' ? e.dataset.enPh : e.dataset.koPh; });
+    $$('[data-lang]').forEach(function (b) { b.classList.toggle('on', b.dataset.lang === l); });
+    try { localStorage.setItem('demo-lang', l); } catch (e) {}
+  }
+  $$('[data-lang]').forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
+  try { if (localStorage.getItem('demo-lang') === 'en') setLang('en'); } catch (e) {}
+
+  var state = { prod: 'all', doc: 'all' }, q = document.getElementById('doc-q');
+  function apply(g) {
+    var term = g === 'doc' ? q.value.trim().toLowerCase() : '', shown = 0;
+    $$('[data-cat][data-group="' + g + '"]').forEach(function (it) {
+      var ok = (state[g] === 'all' || it.dataset.cat === state[g]) &&
+        (!term || it.textContent.toLowerCase().indexOf(term) >= 0);
+      it.hidden = !ok; if (ok) shown++;
+    });
+    if (g === 'doc') document.getElementById('doc-empty').hidden = shown > 0;
+  }
+  $$('.chip').forEach(function (c) {
+    c.addEventListener('click', function () {
+      var g = c.dataset.group; state[g] = c.dataset.filter;
+      $$('.chip[data-group="' + g + '"]').forEach(function (x) { x.classList.toggle('on', x === c); });
+      apply(g);
+    });
+  });
+  q.addEventListener('input', function () { apply('doc'); });
+
+  var toast = document.getElementById('toast'), timer;
+  $$('.dl').forEach(function (b) {
+    b.addEventListener('click', function () {
+      toast.textContent = lang === 'en'
+        ? 'Demo: on a live site this file downloads here.'
+        : '데모입니다. 실제 구축 시 이 버튼으로 파일이 내려받아집니다.';
+      toast.hidden = false; clearTimeout(timer); timer = setTimeout(function () { toast.hidden = true; }, 2600);
+    });
+  });
+  document.getElementById('form').addEventListener('submit', function (e) {
+    e.preventDefault(); document.getElementById('form-note').hidden = false;
+  });
+  document.getElementById('burger').addEventListener('click', function () { document.body.classList.toggle('menu-open'); });
+})();
+(function () {
+  var names = Array.prototype.map.call(document.querySelectorAll('[data-view]'), function (v) { return v.dataset.view; });
+  function st() {
+    var h = location.hash.slice(1); if (names.indexOf(h) < 0) h = 'home';
+    document.body.classList.toggle('on-home', h === 'home');
+    document.body.classList.toggle('scrolled', window.scrollY > 40);
+  }
+  window.addEventListener('hashchange', st); window.addEventListener('scroll', st, { passive: true }); st();
+  var hero = document.querySelector('[data-slider]'); if (!hero) return;
+  var slides = hero.querySelectorAll('.slide'), bar = hero.querySelector('.sl-bar i'), n = hero.querySelector('.sl-n');
+  var i = 0, timer, paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(k) {
+    i = (k + slides.length) % slides.length;
+    Array.prototype.forEach.call(slides, function (s, j) { s.classList.toggle('on', j === i); });
+    if (n) n.textContent = '0' + (i + 1) + ' / 0' + slides.length;
+    Array.prototype.forEach.call(hero.querySelectorAll('[data-go]'), function (b) { b.classList.toggle('on', +b.dataset.go === i); });
+    if (bar) { bar.classList.remove('run'); void bar.offsetWidth; if (!paused) bar.classList.add('run'); }
+    clearTimeout(timer); if (!paused) timer = setTimeout(function () { show(i + 1); }, 6000);
+  }
+  hero.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.sl === 'prev') show(i - 1);
+    else if (b.dataset.sl === 'next') show(i + 1);
+    else if (b.dataset.sl === 'pause') { paused = !paused; b.textContent = paused ? '▶' : '❚❚'; show(i); }
+    else if (b.dataset.go) show(+b.dataset.go);
+  });
+  show(0);
+})();
+
+</script></body></html>
